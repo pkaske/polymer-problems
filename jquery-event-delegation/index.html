@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="jquery-2.1.4.js"></script>
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="x-foo.html">
+  </head>
+  <body>
+    <div foo-target>
+      Click me!
+    </div>
+    
+    <x-foo></x-foo>
+
+    <script>
+      (function($){
+        $('body').on('click', '[foo-target]', function() {
+          console.log('do something');
+        });
+      })(jQuery);
+    </script>
+  </body>
+</html>

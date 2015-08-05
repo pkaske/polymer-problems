@@ -1,0 +1,22 @@
+{
+  "name": "polymer-problems",
+  "version": "1.0.0",
+  "authors": [
+    "Peter Kaske <p.kaske@gmail.com>"
+  ],
+  "description": "",
+  "license": "MIT",
+  "keywords": [
+    "polymer",
+    "web-components",
+    "web-component",
+    "file",
+    "upload"
+  ],
+  "main": "index.html",
+  "ignore": [
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.0.0"
+  }
+}

@@ -1,0 +1,47 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="x-foo">
+  <style>
+    :host {
+      display: block;
+    }
+  </style>
+  <template>
+    <template id="repTpl" is="dom-repeat" items="{{items}}">
+      <div on-tap="_onTap">{{item.name}}</div>
+    </template>
+  </template>
+  <script>
+    Polymer({
+      is: 'x-foo',
+
+      properties: {
+        items: {
+          type: Array,
+          value: [
+            {name: 'First Item: Tap to remove me'},
+            {name: 'Second Item: Tap to remove me'}
+          ]
+        }
+      },
+
+      _onTap: function(e) {
+        var model = e.model;
+
+        /**
+         * This throws a error in jQuery:
+         * The event bubbles up and at some point jQuery tries to execute `getAttribute` on the `document-fragemnt`, which.. is not defined.
+         */
+        this.splice('items', model.index, 1);
+
+        /**
+         * This is a possible workaround...
+         * Comment out line 35 and un-comment the following lines.
+         */
+        // this.async(function() {
+          // this.splice('items', model.index, 1);
+        // }, 100);
+      }
+    });
+  </script>
+</dom-module>
