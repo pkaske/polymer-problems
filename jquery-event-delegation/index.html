@@ -16,7 +16,9 @@
 
     <script>
       (function($){
-        $('body').on('click', '[foo-target]', function() {
+        $('body').on('click', function(e) {
+          // Use a check here instead of a selector in the event.
+          if ($(e.target).closest('[foo-target]').length) return;
           console.log('do something');
         });
       })(jQuery);

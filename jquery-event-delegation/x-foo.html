@@ -8,7 +8,7 @@
   </style>
   <template>
     <template id="repTpl" is="dom-repeat" items="{{items}}">
-      <div on-tap="_onTap">{{item.name}}</div>
+      <div on-tap="_onTap" foo-target><span>{{item.name}}</span><span foo-target>X</span></div>
     </template>
   </template>
   <script>
@@ -33,14 +33,6 @@
          * The event bubbles up and at some point jQuery tries to execute `getAttribute` on the `document-fragemnt`, which.. is not defined.
          */
         this.splice('items', model.index, 1);
-
-        /**
-         * This is a possible workaround...
-         * Comment out line 35 and un-comment the following lines.
-         */
-        // this.async(function() {
-          // this.splice('items', model.index, 1);
-        // }, 100);
       }
     });
   </script>
